@@ -10,14 +10,17 @@ driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 driver.implicitly_wait(3)
 
 # this is the page which will be automated for practice
-driver.get('https://github.com')
+driver.get('https://github.com/login')
 
 # showing the name of page
 print(driver.title)
 
 # inputting the value for email and password to automate
-driver.find_element(By.ID, 'login-email').send_keys('arifuzzamanxyzmunaf@gmail.com')
-driver.find_element(By.ID, 'login-password').send_keys('GitPassword')
+driver.find_element(By.ID, 'login_field').send_keys('arifuzzamanxyzmunaf@gmail.com')
+time.sleep(1)
+driver.find_element(By.ID, 'password').send_keys('GitPassword')
 
 # automate sign-in button using class name
-driver.find_element(By.CLASS_NAME, 'login-button').click()
+driver.find_element(By.CLASS_NAME, 'btn-block').click()
+
+driver.quit()
