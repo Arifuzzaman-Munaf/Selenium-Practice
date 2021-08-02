@@ -23,4 +23,22 @@ driver.find_element(By.ID, 'password').send_keys('GitPassword')
 # automate sign-in button using class name
 driver.find_element(By.CLASS_NAME, 'btn-block').click()
 
+# finding all the links in this page
+total_links = driver.find_elements(By.TAG_NAME, 'a')
+print('number of links : ',len(total_links))
+
+# printing all the links
+for i in total_links :
+    print(f"{i.text} ==> {i.get_attribute('href')}")
+
+# trying to fetch number of images in this page
+total_images = driver.find_elements(By.TAG_NAME, 'img')
+print("Number of images : ",len(total_images))
+
+# printing the images
+for i in total_images:
+    print(i.get_attribute('src'))
+
+
+# quitting the browser
 driver.quit()
