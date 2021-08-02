@@ -9,7 +9,7 @@ driver.get("http://www.google.com")
 print(driver.title)
 
 driver.find_element(By.NAME, 'q').send_keys('Django')
-options = driver.find_elements(By.CSS_SELECTOR, 'ul.erkvQe li div span')
+options = driver.find_elements(By.CSS_SELECTOR, 'ul.erkvQe li div.wM6W7d span')
 
 for i in options:
     print(i.text)
