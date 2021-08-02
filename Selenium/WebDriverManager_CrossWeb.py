@@ -15,5 +15,9 @@ driver.get('https://bux.bracu.ac.bd/login?next=%2F')
 # showing the name of page
 print(driver.title)
 
-'''inputting the email and password for automating
-# the webpage using firefox'''
+# inputting the value for email and password to automate
+driver.find_element(By.ID, 'login-email').send_keys('arifuzzaman.munaf@g.bracu.ac.bd')
+driver.find_element(By.ID, 'login-password').send_keys('bracu/17301111')
+
+# automate sign-in button using class name
+driver.find_element(By.CLASS_NAME, 'login-button').click()
