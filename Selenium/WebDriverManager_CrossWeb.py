@@ -16,7 +16,7 @@ driver.get('https://github.com')
 print(driver.title)
 
 # inputting the value for email and password to automate
-driver.find_element(By.ID, 'login-email').send_keys('arifuzzamanxyzmunaf@g.bracu.ac.bd')
+driver.find_element(By.ID, 'login-email').send_keys('arifuzzamanxyzmunaf@gmail.com')
 driver.find_element(By.ID, 'login-password').send_keys('GitPassword')
 
 # automate sign-in button using class name
