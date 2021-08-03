@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 import time
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.support.ui import Select
 
 
 # installing Firefox driver manager for executing webdriver for further process
@@ -76,7 +77,7 @@ for i in range(len(links)):
 # sorting the items according to price
 link_price = dict(sorted(link_price.items(), key=lambda item: item[1]))
 
-
+time.sleep(1)
 
 # travelling to the page where we get the pruduct with highest price
 selected_link = list(link_price.keys())[-1]
@@ -97,10 +98,19 @@ driver.get('https://evaly.com.bd/career')
 
 
 # expanding all departments
-department = driver.find_elements(By.CSS_SELECTOR, "div.flex-1.my-8.mr-10 svg polyline")
-for i in department :
-    i.click()
+departments = driver.find_elements(By.CSS_SELECTOR, "div.flex-1.my-8.mr-10 div.flex.items-center.justify-between.px-4.py-3.mb-4.bg-gray-200.cursor-pointer")
+
+for i in departments:
+    driver.execute_script("arguments[0].click();", i)
 
 
+# checking all emails located in svg contains @evaly.com or not
+emails = driver.find_elements(By.CSS_SELECTOR, "div.flex.flex-col-reverse.md\:flex-row a")
+
+for i in emails :
+    if not "@evaly.com" in i.get_attribute('href') :
+        print("A email contains an email without having '@evaly.com' ")
+        break
+    print("This email is ok")
 
 
