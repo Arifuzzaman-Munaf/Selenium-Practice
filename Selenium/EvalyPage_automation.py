@@ -28,9 +28,9 @@ driver.find_element(By.CSS_SELECTOR, 'button.flex.items-center span.flex.w-full.
 mobile = driver.find_element(By.XPATH, '//input[@title="Phone number should be 11 digit number"]')
 password = driver.find_element(By.XPATH, '//input[@name = "password"]')
 # sending mobile number and password through keys
-mobile.send_keys('01889111485')
+mobile.send_keys('Use your registered number')
 time.sleep(1)
-password.send_keys('1234@Evaly')
+password.send_keys('your password')
 
 
 time.sleep(1)
