@@ -8,11 +8,12 @@ def test1():
     assert a == b,"test failed"
     assert a**2 + b**2 == 25, "test failed, they are not equal"
 
-
+@pytest.mark.login
 def test2():
     name = "Selenium test"
     assert len(name) == 13 ,"length of the word does not match"
 
+@pytest.mark.login
 def test3() :
     a = 3
     b = 4
