@@ -8,23 +8,25 @@ from selenium.webdriver import ActionChains
 # Declaring a global driver variable
 driver = None
 
-
-def setup_module(module):
+# decorator to set all the driver and termination
+@pytest.fixture(scope='module')
+def setup():
     global driver
+    print("__________________________setup________________________")
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     driver.implicitly_wait(5)
     driver.delete_all_cookies()
     driver.get("http://www.google.com")
 
-
-def teardown_module(module):
-    global driver
+    # yield helps to execute the test cases
+    # the commands after "yield" keyword executes after all the test methods terminates
+    yield
     driver.quit()
 
 
-def test_google_title():
+def test_google_title(setup):
     assert driver.title == "Google"
 
 
-def test_google_url():
+def test_google_url(setup):
     assert driver.current_url == "https://www.google.com/?gws_rd=ssl"
