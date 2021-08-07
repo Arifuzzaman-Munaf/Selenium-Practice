@@ -12,5 +12,5 @@ to run in parallel mode for a specific file ==> py.test (file_name)-n windows_nu
 
 
 to run python fixtures ==>py.test -v -s [file_name.py]
-
+to install pytest-html ==> pip install pytest-html
 to get the html report ==> pytest [file_name.py] -v -s --html = [report_name.html]
