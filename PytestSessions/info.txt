@@ -9,3 +9,8 @@ to run specific tests of a file with marker ==>(cd package dir)  py.test -m (mar
 to install execution of parallel mode ==> pip install pytest-xdist
 to run in parallel mode ==> py.test -n windows_number
 to run in parallel mode for a specific file ==> py.test (file_name)-n windows_number
+
+
+to run python fixtures ==>py.test -v -s [file_name.py]
+
+to get the html report ==> pytest [file_name.py] -v -s --html = [report_name.html]

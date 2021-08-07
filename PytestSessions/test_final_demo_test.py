@@ -9,7 +9,7 @@ from selenium.webdriver import ActionChains
 driver = None
 
 
-def setup(module):
+def setup_module(module):
     global driver
     driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     driver.implicitly_wait(5)
@@ -27,4 +27,4 @@ def test_google_title():
 
 
 def test_google_url():
-    assert driver.current_url == "http://www.google.com"
+    assert driver.current_url == "https://www.google.com/?gws_rd=ssl"
